@@ -1,0 +1,32 @@
+def calculate_taxes(prices: list[float], tax_rate: float) -> list[float]:
+    """Функция вычисляет стоимость товаров с учетом налога."""
+
+
+    if tax_rate < 0:
+        return "Неверный налоговый процент"
+
+    taxed_prices = []
+
+    for price in prices:
+        if price <= 0:
+            return 'Неверная цена'
+        tax = price * tax_rate / 100
+        taxed_prices.append(price + tax)
+
+    return taxed_prices
+
+# print(calculate_taxes([154687.0], 18.5))
+
+
+def calculate_tax(price:float, tax_rate:float) -> float:
+    if price < 0:
+        return "Неверная цена"
+    if tax_rate == 100 or tax_rate < 0:
+        return "Неверный налоговый процент"
+
+    return price + (price / 100) * tax_rate
+
+# print(calculate_tax(100.0, 10.0))
+
+
+
