@@ -18,11 +18,13 @@ def calculate_taxes(prices: list[float], tax_rate: float) -> list[float]:
 # print(calculate_taxes([154687.0], 18.5))
 
 
-def calculate_tax(price:float, tax_rate:float) -> float:
-    if price < 0:
+def calculate_tax(price:int or float, tax_rate:float) -> float:
+    if int(price) < 0 or float(price) < 0:
         return "Неверная цена"
     if tax_rate == 100 or tax_rate < 0:
         return "Неверный налоговый процент"
+    if price == str:
+        return "Неверный формат данных цены"
 
     return price + (price / 100) * tax_rate
 
